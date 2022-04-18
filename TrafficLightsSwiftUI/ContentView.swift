@@ -8,9 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    @State var textButton = "START"
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        
+        ZStack {
+            Color.black.edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                CircleView(color: .red)
+                CircleView(color: .orange)
+                CircleView(color: .green)
+                
+                Spacer()
+                
+                Button {
+                    textButton = "NEXT"
+                } label: {
+                    Text(textButton)
+                        .frame(width: 150, height: 50)
+                        .foregroundColor(.white)
+                        .overlay(Rectangle().stroke(.white, lineWidth: 5))
+                        .background(.purple)
+                        .cornerRadius(15)
+                }
+                
+            }
+        }
     }
 }
 
